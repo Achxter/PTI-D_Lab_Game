@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+    <style>
+        
+    </style>
+    <title>Idle Clicker | MidExam</title>
+</head>
+<body>
+    <audio id="bgmusic" autoplay="autoplay" loop="loop"><source src="Asset/bgmusic.mp3"></source></audio>
+    <audio id="moneySound" preload="auto"><source src="Asset/MoneySoundEffect.mp3"></source></audio>
+    <audio id="BuySound" preload="auto"><source src="Asset/BuySoundEffect.mp3"></source></audio>
+    <div class="overflow-hidden" id="container">
+        <nav class="z-1 navbar navbar-expand-lg position-absolute top-0 start-0 w-100" id="navBar">
+            <div class="container-fluid">
+                <a class="navbar-brand mb-1 d-flex" href="home.html">
+                    <img src="Asset/click.png" class="logo me-2" alt=""> 
+                    <button data-text="Awesome" class="buttonnav">
+                        <span class="actual-text">&nbsp;IDLE CLICKER&nbsp;</span>
+                        <span class="hover-text" aria-hidden="true">&nbsp;IDLE CLICKER&nbsp;</span>
+                    </button>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <label class="burger" for="burger">
+                        <input type="checkbox" id="burger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-2 mb-2 mb-lg-0" id="collapseItem">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="main.html">Game</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="https://umn.ac.id" class="position-absolute translate-middle-x" id="umn">
+                    <img src="Asset/UMN-2.png" class="logo" alt="">
+                </a>
+            </div>
+        </nav>
+        <!-- <div class="mt-2"><br></div> -->
+        <div class="row d-flex justify-content-center" id="row">
+            <div class="card col-md-6 mt-5 col-12 mx-5"  id="blur">
+                <div class="info mt-5">
+                    <h2 id="infomaseh">Information</h2>
+                </div>
+                <div class="z-2 leveling row mt-4">
+                    <div class="levelToko col-6 d-flex flex-column align-items-center">
+                        <i class="fa-solid fa-warehouse"></i><span class="shopVal p-2">0</span>
+                        <h5 class="">Shop Level</h5>
+                    </div>
+                    <div class="gold col-6 d-flex flex-column align-items-center">
+                        <i class="fa-solid fa-money-bill-wave"></i><span class="uangVal p-2">$0</span>
+                        <h5 class="m-0">Gold</h5>
+                    </div>
+                </div>
+                <div class="z-2 my-5 d-flex flex-column align-items-center">
+                    <button class="button btnAuto mt-4">Auto Clicker</button>
+                    <button class="button btnShop mt-4">Upgrade Shop</button>
+                    <button class="button mt-4" onclick="toggle()">Upgrade Income</button>
+                </div>
+            </div>
+            <div id="popup">
+                <div class="form-box">
+                    <div class="form-box-text">
+                        <h4>Upgrade Income</h4>
+                    </div>
+                    <div class="form-box-fill row">
+                        <div class="col-4 d-flex flex-column align-items-center">
+                            <div class="cardeu mt-4">
+                                <div class="contenteu">
+                                    <div class="back">
+                                        <div class="back-content">
+                                           <img src="Asset/Gems.png" alt="">
+                                           <h3>Gems</h3>
+                                        </div>
+                                    </div>
+                                    <div class="front">
+                                        <div class="img">
+                                            <div class="circle"></div>
+                                            <div class="circle" id="right"></div>
+                                            <div class="circle" id="bottom"></div>
+                                        </div>
+                                        <div class="front-content">
+                                            <h5 class="title1">Mystical Gems</h5>
+                                            <div class="description">
+                                                <div class="title">
+                                                    <p class="title btnUpGems">Level 1 - Cost $50</p>
+                                                    <p class="title">Mystical Purple Gems gradually enhance your shop to be wealthier on every transaction</p>
+                                                    <p class="title ketGems">Income Gold +$1</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tombolpilihmenu mt-4">
+                                <button class="btnUpgrade btnGems w-100 mx-auto">&nbsp;&nbsp;Buy&nbsp;&nbsp;</button>
+                            </div>
+                        </div>
+                        <div class="col-4 d-flex flex-column align-items-center">
+                            <div class="cardeu mt-4">
+                                <div class="contenteu">
+                                    <div class="back">
+                                        <div class="back-content">
+                                        <img src="Asset/magicScroll.png" alt="">
+                                        <h3>Scroll</h3>
+                                        </div>
+                                    </div>
+                                    <div class="front">
+                                        <div class="img">
+                                            <div class="circle"></div>
+                                            <div class="circle" id="right"></div>
+                                            <div class="circle" id="bottom"></div>
+                                        </div>
+                                        <div class="front-content">
+                                            <h5 class="title1">Magical Scroll</h5>
+                                            <div class="description">
+                                                <div class="title">
+                                                    <p class="title btnUpScroll">Level 1 - Cost $80</p>
+                                                    <p class="title">Magical scroll intensifies your shop to become more powerful on every transaction</p>
+                                                    <p class="title ketScroll">Income Gold +$2</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tombolpilihmenu mt-4">
+                                <button class="btnUpgrade btnScroll w-100 mx-auto">&nbsp;&nbsp;Buy&nbsp;&nbsp;</button>
+                            </div>
+                        </div>
+                        <div class="col-4 d-flex flex-column align-items-center">
+                            <div class="cardeu mt-4">
+                                <div class="contenteu">
+                                    <div class="back">
+                                        <div class="back-content">
+                                        <img src="Asset/potion.png" alt="">
+                                        <h3>Potion</h3>
+                                        </div>
+                                    </div>
+                                    <div class="front">
+                                        <div class="img">
+                                            <div class="circle"></div>
+                                            <div class="circle" id="right"></div>
+                                            <div class="circle" id="bottom"></div>
+                                        </div>
+                                        <div class="front-content">
+                                            <h5 class="title1">Energy Potion</h5>
+                                            <div class="description">
+                                                <div class="title">
+                                                    <p class="title btnUpPotion">Level 1 - Cost $100</p>
+                                                    <p class="title">Energy potion increases your shop's durability and protection on every transaction</p>
+                                                    <p class="title ketPotion">Income Gold +$3</p>                                           
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tombolpilihmenu mt-4">
+                                <button class="btnUpgrade btnPotion w-100 mx-auto">&nbsp;&nbsp;Buy&nbsp;&nbsp;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="close" href="#" onclick="toggle()">&times;</a>
+            </div>
+            <div class="col-md-6 mt-5 col-12">
+                <div class="income d-flex mb-0 m-auto">
+                    <h5 class="incomeGold text-center m-auto">Income Gold = $1</h5>
+                </div>
+                <div class="taptap position-relative d-flex flex-column align-items-center" id="char">
+                    <img src="Asset/rune.png" alt="" id="coin">
+                    <img src="Asset/skelly.gif" alt="">
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <script>
+        $(".taptap").click(function(){
+            $("#coin").fadeIn(50);
+            $("#coin").css("position", "absolute").animate({
+                top: -100,
+            }, 500);
+            setTimeout(() => {
+                $("#coin").fadeOut(50);
+                $("#coin").css("position", "absolute").animate({
+                    top: 50,
+                }, 1);
+            }, 100); 
+        });
+    </script>
+</body>
+</html>
